@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNews</title>
+
+    <!-- FUENTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --primary: #f5b301;
+            --primary-dark: #e29d00;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+            --radius: 18px;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            height: 75vh;
+            min-height: 560px;
+
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.75),
+                    rgba(15, 23, 42, 0.8)),
+                url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+        }
+
+        header p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+
+        /* =========================
+           NAV
+        ========================== */
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+
+            padding: 20px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        main {
+            width: 92%;
+            max-width: 1300px;
+
+            margin: 70px auto;
+
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 35px;
+        }
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        section,
+        article,
+        aside {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 35px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        article {
+            margin: 35px 0;
+            transition: 0.35s ease;
+        }
+
+        article:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        section h2,
+        aside h2 {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        section h2::before,
+        aside h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 5px;
+            height: 28px;
+            border-radius: 10px;
+            background: var(--primary);
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        time {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* =========================
+           ARTICLE META
+        ========================== */
+
+        article p:first-of-type,
+        article p:nth-of-type(2) {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* =========================
+           ASIDE
+        ========================== */
+
+        aside {
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        aside li:last-child {
+            border-bottom: none;
+        }
+
+        aside a {
+            color: var(--text);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        aside a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            margin-top: 80px;
+
+            background: #0f172a;
+
+            color: rgba(255, 255, 255, 0.8);
+
+            text-align: center;
+
+            padding: 70px 20px 50px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        footer ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        footer li {
+            margin: 8px 0;
+        }
+
+        /* =========================
+           HR
+        ========================== */
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 30px 0;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 980px) {
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            nav ul {
+                gap: 25px;
+                flex-wrap: wrap;
+            }
+
+            header h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                min-height: 450px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            section,
+            article,
+            aside {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--     HEADER      -->
+    <header>
+        <h1>TechNews</h1>
+        <p>Tu portal diario de innovación y tecnología.</p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <ul>
+            <li><a href="">Inicio</a> </li>
+            <li><a href="">Noticias</a></li>
+            <li><a href="">Reseñas</a></li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div>
+
+            <!-- SECTION -->
+            <section>
+                <h2>Noticias Destacadas</h2>
+
+                <p>
+                    La inteligencia artificial continúa revolucionando el desarrollo de aplicaciones web y móviles.
+                    Cada vez más empresas incorporan sistemas inteligentes para automatizar tareas y mejorar la experiencia de usuario.
+                </p>
+
+                <p>
+                    Nuevos avances en baterías prometen dispositivos móviles con una duración mucho mayor.
+                    Investigadores europeos han presentado prototipos capaces de reducir el tiempo de carga a pocos minutos.
+                </p>
+
+                <p>
+                    La computación cuántica avanza rápidamente y varias compañías tecnológicas ya trabajan en soluciones comerciales para los próximos años.
+                </p>
+            </section>
+
+            <hr>
+
+            <!-- ARTICLE -->
+            <article>
+
+                <h2>El futuro de la inteligencia artificial en el desarrollo web</h2>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    <time datetime="2026-05-15">15 de mayo de 2026</time>
+                </p>
+
+                <p>
+                    <strong>Autor:</strong>
+                    María González
+                </p>
+
+                <p>
+                    La inteligencia artificial se ha convertido en una herramienta fundamental para desarrolladores web.
+                    Actualmente existen plataformas capaces de generar código, optimizar interfaces y detectar errores automáticamente.
+                </p>
+
+                <p>
+                    Muchas empresas utilizan asistentes inteligentes para acelerar el desarrollo de aplicaciones y reducir costes.
+                    Sin embargo, expertos señalan que el conocimiento técnico sigue siendo esencial para supervisar y validar el trabajo generado por estas herramientas.
+                </p>
+
+            </article>
+
+            <hr>
+
+            <!-- ARTICLE -->
+            <article>
+
+                <h2>Nuevos smartphones con baterías de carga ultrarrápida</h2>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    <time datetime="20226-05-12">12 de mayo de 2026</time>
+                </p>
+
+                <p>
+                    <strong>Autor:</strong> Carlos Herrera
+                </p>
+
+                <p>
+                    Diversos fabricantes tecnológicos han anunciado dispositivos móviles con sistemas de carga capaces de completar el 80% de la batería en menos de diez minutos.
+                </p>
+
+                <p>
+                    Esta tecnología podría cambiar la forma en que los usuarios utilizan sus teléfonos diariamente,
+                    reduciendo la dependencia de cargadores portátiles y aumentando la autonomía general.
+                </p>
+
+            </article>
+
+        </div>
+
+        <!-- ASIDE -->
+        <aside>
+
+            <h2>Noticias Relacionadas</h2>
+
+            <ul>
+                <li>Las gafas de realidad aumentada ganan popularidad en educación.</li>
+                <li>Nuevos procesadores mejoran el rendimiento energético.</li>
+                <li>La ciberseguridad será una de las profesiones más demandadas.</li>
+            </ul>
+
+            <h2>Publicidad</h2>
+
+            <p>
+                Aprende programación web desde cero.
+            </p>
+
+            <p>
+                Descubre nuestros cursos de desarrollo frontend y backend.
+            </p>
+
+            <hr>
+
+            <h2>Enlaces externos</h2>
+
+            <ul>
+                <li><a href="">OpenAI</a></li>
+                <li><a href="">Mozilla Developer Network</a></li>
+                <li><a href="">W3Schools</a></li>
+            </ul>
+
+        </aside>
+
+    </main>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            &copy; 2026 TechNews
+        </p>
+
+        <p>contacto@technews.com</p>
+
+        <a href="">Instagram</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="">Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="">YouTube</a>
+
+        <ul>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">YouTube</a></li>
+        </ul>
+
+    </footer>
+
+</body>
+
+</html>

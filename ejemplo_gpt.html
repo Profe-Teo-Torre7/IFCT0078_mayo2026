@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNews</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #111827;
+            color: #f3f4f6;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop') center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        header h1,
+        header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: #00e5ff;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #d1d5db;
+        }
+
+        /* NAV */
+        nav {
+            background-color: #0f172a;
+            border-bottom: 2px solid #00e5ff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 0;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+        /* MAIN */
+        main {
+            width: 90%;
+            max-width: 1300px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
+        }
+
+        /* CARDS */
+        section,
+        article,
+        aside {
+            background-color: #1f2937;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        section h2,
+        article h2,
+        aside h2 {
+            color: #00e5ff;
+            margin-bottom: 18px;
+        }
+
+        article {
+            margin-top: 25px;
+            transition: transform 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+        }
+
+        article p,
+        section p,
+        aside p {
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        time {
+            color: #00e5ff;
+        }
+
+        /* ASIDE */
+        aside ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        aside li {
+            margin-bottom: 12px;
+        }
+
+        aside a {
+            color: #00e5ff;
+            text-decoration: none;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0f172a;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 2px solid #00e5ff;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            color: #d1d5db;
+        }
+
+        footer a {
+            color: #00e5ff;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        footer ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        footer li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: rgba(255,255,255,0.1);
+            margin: 25px 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            header {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>TechNews</h1>
+        <p>Tu portal diario de innovación y tecnología.</p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <ul>
+            <li><a href="">Inicio</a></li>
+            <li><a href="">Noticias</a></li>
+            <li><a href="">Reseñas</a></li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN -->
+    <main>
+
+        <div>
+
+            <section>
+                <h2>Noticias Destacadas</h2>
+
+                <p>
+                    La inteligencia artificial continúa revolucionando el desarrollo de aplicaciones web y móviles.
+                </p>
+
+                <p>
+                    Nuevos avances en baterías prometen dispositivos móviles con una duración mucho mayor.
+                </p>
+
+                <p>
+                    La computación cuántica avanza rápidamente y varias compañías tecnológicas ya trabajan en soluciones comerciales.
+                </p>
+            </section>
+
+            <article>
+                <h2>El futuro de la inteligencia artificial en el desarrollo web</h2>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    <time datetime="2026-05-15">15 de mayo de 2026</time>
+                </p>
+
+                <p>
+                    <strong>Autor:</strong>
+                    María González
+                </p>
+
+                <p>
+                    La inteligencia artificial se ha convertido en una herramienta fundamental para desarrolladores web.
+                </p>
+
+                <p>
+                    Muchas empresas utilizan asistentes inteligentes para acelerar el desarrollo de aplicaciones.
+                </p>
+            </article>
+
+            <article>
+                <h2>Nuevos smartphones con baterías de carga ultrarrápida</h2>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    <time datetime="2026-05-12">12 de mayo de 2026</time>
+                </p>
+
+                <p>
+                    <strong>Autor:</strong>
+                    Carlos Herrera
+                </p>
+
+                <p>
+                    Diversos fabricantes tecnológicos han anunciado dispositivos móviles con sistemas de carga ultrarrápida.
+                </p>
+
+                <p>
+                    Esta tecnología podría cambiar la forma en que los usuarios utilizan sus teléfonos diariamente.
+                </p>
+            </article>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside>
+
+            <h2>Noticias Relacionadas</h2>
+
+            <ul>
+                <li>Las gafas de realidad aumentada ganan popularidad en educación.</li>
+                <li>Nuevos procesadores mejoran el rendimiento energético.</li>
+                <li>La ciberseguridad será una de las profesiones más demandadas.</li>
+            </ul>
+
+            <hr>
+
+            <h2>Publicidad</h2>
+
+            <p>Aprende programación web desde cero.</p>
+
+            <p>Descubre nuestros cursos de desarrollo frontend y backend.</p>
+
+            <hr>
+
+            <h2>Enlaces externos</h2>
+
+            <ul>
+                <li><a href="">OpenAI</a></li>
+                <li><a href="">Mozilla Developer Network</a></li>
+                <li><a href="">W3Schools</a></li>
+            </ul>
+
+        </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>&copy; 2026 TechNews</p>
+
+        <p>contacto@technews.com</p>
+
+        <a href="">Instagram</a> |
+        <a href="">Twitter</a> |
+        <a href="">YouTube</a>
+
+        <ul>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">YouTube</a></li>
+        </ul>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+/* 
+Esto es un comentario de CSS
+*/
+
+/* 
+*{
+  font-family: 'Courier New', Courier, monospace;
+  margin:0;
+  padding:20px;  
+} 
+  */
+
+h1{
+    /* border: 10px dotted blue; */
+
+    border-top:2px solid aqua;
+
+    border-bottom-width: 10px;
+    border-bottom-color: blue;
+    border-bottom-style: solid;
+
+    border-radius: 20px;
+
+    text-decoration: underline;
+    text-align: center;
+    
+}
+p{
+    border-radius: 10px;
+}

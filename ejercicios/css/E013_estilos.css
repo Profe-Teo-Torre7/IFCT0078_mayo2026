@@ -1,0 +1,89 @@
+/* Reset de los estilos por defecto */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Selectores de etiquetas */
+body{
+    font-family: "Noto Sans", sans-serif;
+}
+
+header{
+    width: 100%;
+    /* height:fit-content; */
+    background-color: rgb(32, 83, 117);
+    color:white;
+}
+nav{
+    background-color: #112b3c;
+    color:white;
+    text-align: center;
+}
+
+nav li{
+    display: inline-block;
+    padding: 6px;
+    border:1px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    
+}
+
+main{
+    margin-top: 30px;
+}
+
+article{
+    margin-bottom: 50px;
+    border-bottom: 2px dashed rgb(228, 227, 227);
+    padding-bottom: 40px;
+}
+
+article p{
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+article:last-child{
+    border:none;
+}
+ 
+h2{
+    margin-top:20px;
+    margin-bottom:20px;
+    font-weight: 500;
+}
+
+footer{
+    background-color: #112b3c;
+    color:white;
+
+}
+/* Selectores de punto */
+
+.logo{
+    text-align: center;
+    font-size: 30px;
+    padding:20px;
+}
+
+.subtitulo{
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.contenedor {
+    width: 960px;
+    height: 100%;
+    /* border: 1px solid blue; */
+    margin: 0 auto;
+}
+
+.read-full{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

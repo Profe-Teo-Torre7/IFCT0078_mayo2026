@@ -31,6 +31,14 @@ nav li{
     margin-right: 10px;
     
 }
+nav li a{
+    color:white;
+    text-decoration: none;
+}
+
+nav li:hover{
+    background-color: rgb(32, 83, 117);
+}
 
 main{
     margin-top: 30px;
@@ -60,6 +68,7 @@ h2{
 footer{
     background-color: #112b3c;
     color:white;
+    padding:15px;
 
 }
 /* Selectores de punto */
@@ -94,4 +103,46 @@ footer{
 .read-full{
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+.read-full a{
+    color: rgb(32, 83, 117);
+}
+.read-full a:hover{
+    color:white;
+    background-color: rgb(32, 83, 117);
+}
+
+.pastilla{
+    background-color: rgb(236, 236, 236);
+    padding:5px 10px;
+    border: 1px solid rgb(202, 200, 200);
+    border-radius: 5px;
+    margin-right: 7px;
+}
+
+.pastilla a{
+    color:black;
+    text-decoration: none;
+}
+
+.pastilla:hover{
+    background-color: rgb(32, 83, 117);
+}
+.pastilla a:hover{
+    color:white;
+}
+
+.pie-enlace{
+    padding:10px;
+}
+.pie-enlace a{
+    color:tomato;
+    padding-right:10px;
+}
+
+.pie-enlace a:hover{
+    color:rgb(32, 83, 117);
+    background-color: tomato;
+    text-decoration: none;
 }

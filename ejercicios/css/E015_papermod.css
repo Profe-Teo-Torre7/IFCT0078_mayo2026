@@ -1,0 +1,105 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(245, 245, 245);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+    text-align: right;
+}
+nav li{
+    display: inline-block;
+    margin-right: 10px;
+}
+nav a{
+    color:black;
+    text-decoration: none;
+}
+
+footer{
+    margin-top:80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+
+
+
+/* Estilos de clase */
+
+.contenedor{
+    width: 960px;
+    margin: 0 auto;
+    /* border:1px solid blue; */
+    color:#717171;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: 700;
+    
+}
+.logo a{
+    color:black;
+    text-decoration: none;
+}
+.menu-enlace{
+    height: 18px;
+    color:black;
+}
+
+.entrada{
+    margin-top:55px;
+    
+}
+.titulo{
+    font-size:35px;
+    color:black;
+    margin-bottom: 20px;
+}
+.texto{
+    padding-left:20px;
+    line-height: 2;
+}
+.clean{
+    margin-bottom: 15px;
+}
+.enlace{
+    color:black;
+    text-decoration: underline;
+}
+.iconos{
+    margin-top:15px;
+    color:black;
+    font-size: 22px;
+}
+.iconos i{
+    margin-right: 10px;
+}
+.blog-post{
+    margin-top:30px;
+    
+    background-color: white;
+    border-radius: 12px;
+    padding:15px;
+}
+.blog-post:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(43, 233, 116, 0.4);
+}
+.blog-post h3{
+    color:black;
+    font-size: 27px;
+    line-height: 1.4;
+}
+.blog-post p{
+    line-height: 2;
+}
+.a-blog-post{
+    text-decoration: none;
+    line-height: 1.7;
+    color:#717171;
+}

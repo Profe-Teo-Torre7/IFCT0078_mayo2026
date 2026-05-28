@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caja {
+            background-color: #eee;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .caja a {
+            color: black;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* Cuando el ratón pasa sobre el div */
+        .caja:hover {
+            background-color: #333;
+        }
+
+        /* Cambiar el color del enlace al hacer hover en el div */
+        .caja:hover a {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="caja">
+        <a href="#">Mi enlace</a>
+    </div>
+</body>
+
+</html>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Original: https://jamstackthemes.dev/demo/theme/chulapa/ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        *{
-            margin:0;
-            padding:0;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        header{
+
+        header {
             height: 100vh;
             width: 100vw;
             background-image: url("img/foto_metro.jpg");
@@ -23,22 +25,37 @@
 
 
         /* Estilos de clase */
-        .fondo-gris{
-            height:100%;
+        .fondo-gris {
+            height: 100%;
             background-color: rgba(140, 139, 139, 0.343);
         }
-        
+
+        .separador {
+            width: 5%;
+            /* Ancho deseado */
+            margin: 15px auto;
+            /* 20px arriba/abajo, auto centra horizontalmente */
+            border: 0;
+            /* Elimina el borde por defecto del navegador */
+            border-top: 4px solid #ffffff;
+            /* Define el grosor y color */
+
+        }
     </style>
     <title>Chulapa</title>
 </head>
+
 <body>
     <header>
-        <div class="fondo-gris"> 
-            <h1>Chulapa</h1>
-            <p>A full flexible Jekyll theme for Github Pages</p>
-            <a href=""></a>
+        <div class="fondo-gris">
+            <div class="contenedor">
+                <h1>Chulapa</h1>
+                <hr class="separador">
+                <p>A full flexible Jekyll theme for Github Pages</p>
+                <a href=""></a>
+            </div>
         </div>
     </header>
-    
 </body>
+
 </html>

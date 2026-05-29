@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guía Avanzada de Position y z-index en CSS</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    line-height:1.8;
+    margin:40px;
+    background:#f4f4f4;
+    color:#222;
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-top:80px;
+    color:#0b57d0;
+    border-bottom:3px solid #0b57d0;
+    padding-bottom:10px;
+}
+
+h3{
+    margin-top:40px;
+    color:#ff5722;
+}
+
+p{
+    margin:15px 0;
+}
+
+pre{
+    background:#111;
+    color:#00ff88;
+    padding:20px;
+    overflow:auto;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.note{
+    background:#fff3cd;
+    border-left:6px solid #ff9800;
+    padding:20px;
+    margin:30px 0;
+}
+
+.warning{
+    background:#ffebee;
+    border-left:6px solid #f44336;
+    padding:20px;
+    margin:30px 0;
+}
+
+.demo{
+    position:relative;
+    width:700px;
+    height:350px;
+    background:white;
+    border:3px solid #333;
+    margin-top:30px;
+    overflow:hidden;
+}
+
+.box{
+    width:140px;
+    height:140px;
+    color:white;
+    padding:10px;
+    font-weight:bold;
+}
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+.table td,
+.table th{
+    border:1px solid #ccc;
+    padding:15px;
+}
+
+.table th{
+    background:#0b57d0;
+    color:white;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Guía Avanzada de Position y z-index en CSS</h1>
+
+<p>
+La propiedad <strong>position</strong> es uno de los pilares fundamentales del layout en CSS.
+Aunque Flexbox y Grid resolvieron muchos problemas modernos de maquetación,
+position sigue siendo imprescindible para:
+</p>
+
+<ul>
+    <li>modales</li>
+    <li>tooltips</li>
+    <li>dropdowns</li>
+    <li>hero sections</li>
+    <li>videos de fondo</li>
+    <li>sidebars</li>
+    <li>menús flotantes</li>
+    <li>animaciones</li>
+    <li>capas visuales</li>
+</ul>
+
+<p>
+Comprender cómo funciona realmente el posicionamiento es lo que separa
+a un desarrollador junior de uno avanzado.
+</p>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>1. Cómo funciona el flujo normal del documento</h2>
+
+<p>
+Antes de entender position, debes entender el concepto de
+<strong>flujo normal del documento</strong>.
+</p>
+
+<p>
+Por defecto:
+</p>
+
+<ul>
+    <li>los elementos se colocan uno debajo de otro</li>
+    <li>cada elemento ocupa espacio</li>
+    <li>el navegador calcula automáticamente posiciones</li>
+</ul>
+
+<pre>
+&lt;div&gt;Caja 1&lt;/div&gt;
+&lt;div&gt;Caja 2&lt;/div&gt;
+&lt;div&gt;Caja 3&lt;/div&gt;
+</pre>
+
+<p>
+Resultado:
+</p>
+
+<div style="background:white;padding:20px;border:2px solid #ccc;">
+
+<div style="background:#2196f3;color:white;padding:20px;margin-bottom:10px;">
+Caja 1
+</div>
+
+<div style="background:#4caf50;color:white;padding:20px;margin-bottom:10px;">
+Caja 2
+</div>
+
+<div style="background:#ff5722;color:white;padding:20px;">
+Caja 3
+</div>
+
+</div>
+
+<p>
+Eso es el comportamiento "normal".
+</p>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>2. position: static</h2>
+
+<p>
+Es el valor por defecto.
+</p>
+
+<pre>
+position: static;
+</pre>
+
+<h3>Características reales</h3>
+
+<ul>
+    <li>el elemento permanece en el flujo normal</li>
+    <li>top, left, right y bottom NO tienen efecto</li>
+    <li>z-index tampoco funciona correctamente</li>
+</ul>
+
+<h3>Error común</h3>
+
+<pre>
+div{
+    position: static;
+    top:50px;
+}
+</pre>
+
+<p>
+Muchos principiantes creen que top moverá el elemento.
+No lo hará.
+</p>
+
+<div class="warning">
+top, left, right y bottom requieren un position distinto de static.
+</div>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>3. position: relative</h2>
+
+<p>
+Relative es probablemente el valor más incomprendido de CSS.
+</p>
+
+<pre>
+position: relative;
+</pre>
+
+<h3>Qué hace realmente</h3>
+
+<p>
+Relative tiene DOS funciones fundamentales:
+</p>
+
+<ol>
+    <li>permite desplazar el elemento</li>
+    <li>crea un contexto de referencia para absolute</li>
+</ol>
+
+
+
+
+
+<h3>Desplazamiento visual</h3>
+
+<div class="demo">
+
+<div
+class="box"
+style="
+position:relative;
+top:40px;
+left:60px;
+background:#2196f3;
+">
+relative
+</div>
+
+</div>
+
+<pre>
+.box{
+    position:relative;
+    top:40px;
+    left:60px;
+}
+</pre>
+
+<h3>Lo importante aquí</h3>
+
+<p>
+Aunque el elemento se mueve visualmente:
+</p>
+
+<ul>
+    <li>SU espacio original sigue existiendo</li>
+    <li>los demás elementos actúan como si no se hubiera movido</li>
+</ul>
+
+
+
+
+
+<h3>Relative como referencia</h3>
+
+<p>
+Este es el uso MÁS importante profesionalmente.
+</p>
+
+<div class="demo">
+
+<div
+style="
+position:relative;
+width:300px;
+height:200px;
+background:#2196f3;
+margin:40px;
+color:white;
+padding:20px;
+">
+
+Contenedor padre
+
+<div
+style="
+position:absolute;
+top:10px;
+right:10px;
+background:#f44336;
+padding:10px;
+">
+absolute
+</div>
+
+</div>
+
+</div>
+
+<pre>
+.padre{
+    position:relative;
+}
+
+.hijo{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+</pre>
+
+<h3>Por qué ocurre esto</h3>
+
+<p>
+El elemento absolute busca:
+</p>
+
+<p>
+<strong>
+"el ancestro más cercano que tenga position distinto de static"
+</strong>
+</p>
+
+<p>
+Ese ancestro se convierte en su sistema de coordenadas.
+</p>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>4. position: absolute</h2>
+
+<p>
+Absolute elimina el elemento del flujo normal.
+</p>
+
+<pre>
+position: absolute;
+</pre>
+
+<h3>Qué significa "salir del flujo"</h3>
+
+<p>
+El navegador actúa como si el elemento NO existiera.
+</p>
+
+<p>
+Por eso:
+</p>
+
+<ul>
+    <li>los demás elementos no reservan espacio</li>
+    <li>puede superponerse</li>
+    <li>puede colocarse libremente</li>
+</ul>
+
+
+
+
+
+<h3>Ejemplo visual</h3>
+
+<div class="demo">
+
+<div
+style="
+width:200px;
+height:200px;
+background:#2196f3;
+position:absolute;
+top:30px;
+left:40px;
+color:white;
+padding:20px;
+">
+Caja Absolute
+</div>
+
+<div
+style="
+width:200px;
+height:200px;
+background:#4caf50;
+margin-top:80px;
+margin-left:120px;
+color:white;
+padding:20px;
+">
+Caja normal
+</div>
+
+</div>
+
+<h3>Qué observas</h3>
+
+<ul>
+    <li>las cajas se superponen</li>
+    <li>absolute no ocupa espacio</li>
+    <li>el flujo normal ignora su existencia</li>
+</ul>
+
+
+
+
+
+<h3>Usos reales profesionales</h3>
+
+<table class="table">
+
+<tr>
+<th>Uso</th>
+<th>Por qué se usa absolute</th>
+</tr>
+
+<tr>
+<td>modales</td>
+<td>superposición total</td>
+</tr>
+
+<tr>
+<td>tooltips</td>
+<td>posicionamiento exacto</td>
+</tr>
+
+<tr>
+<td>badges</td>
+<td>colocar sobre iconos</td>
+</tr>
+
+<tr>
+<td>dropdown menus</td>
+<td>flotar sobre contenido</td>
+</tr>
+
+<tr>
+<td>video background</td>
+<td>ocupar todo el contenedor</td>
+</tr>
+
+<tr>
+<td>overlays</td>
+<td>cubrir elementos</td>
+</tr>
+
+</table>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>5. Centrando elementos con absolute</h2>
+
+<p>
+Antes de Flexbox, esta era la técnica profesional estándar.
+</p>
+
+<div class="demo">
+
+<div
+style="
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+background:#ff5722;
+padding:30px;
+color:white;
+">
+Elemento centrado
+</div>
+
+</div>
+
+<pre>
+.elemento{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+</pre>
+
+
+
+
+
+<h3>Cómo funciona realmente</h3>
+
+<h4>1. top:50%</h4>
+
+<p>
+Mueve el borde superior del elemento al centro del contenedor.
+</p>
+
+<h4>2. left:50%</h4>
+
+<p>
+Mueve el borde izquierdo al centro.
+</p>
+
+<h4>3. transform</h4>
+
+<p>
+Corrige el desplazamiento moviendo el elemento hacia atrás
+la mitad de su propio tamaño.
+</p>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>6. position: fixed</h2>
+
+<p>
+Fixed usa la ventana del navegador como referencia.
+</p>
+
+<pre>
+position: fixed;
+</pre>
+
+<h3>Diferencia clave</h3>
+
+<p>
+Mientras absolute depende del padre,
+fixed depende SIEMPRE de la pantalla.
+</p>
+
+
+
+
+
+<h3>Ejemplo clásico</h3>
+
+<pre>
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+</pre>
+
+<h3>Usos reales</h3>
+
+<ul>
+    <li>botón whatsapp</li>
+    <li>navbar fija</li>
+    <li>chat flotante</li>
+    <li>cookie banners</li>
+    <li>botón scroll-top</li>
+</ul>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>7. position: sticky</h2>
+
+<p>
+Sticky es híbrido entre relative y fixed.
+</p>
+
+<pre>
+position: sticky;
+</pre>
+
+<h3>Cómo funciona</h3>
+
+<ul>
+    <li>inicialmente actúa como relative</li>
+    <li>al llegar a cierto scroll se vuelve fixed</li>
+</ul>
+
+<pre>
+.sidebar{
+    position:sticky;
+    top:20px;
+}
+</pre>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>8. z-index explicado profundamente</h2>
+
+<p>
+z-index controla el orden de apilamiento.
+</p>
+
+<p>
+Piensa en capas:
+</p>
+
+<ul>
+    <li>mayor z-index = más adelante</li>
+    <li>menor z-index = más atrás</li>
+</ul>
+
+
+
+
+
+<h3>Ejemplo visual</h3>
+
+<div class="demo">
+
+<div
+style="
+position:absolute;
+width:220px;
+height:220px;
+background:#2196f3;
+top:40px;
+left:40px;
+z-index:1;
+color:white;
+padding:20px;
+">
+z-index:1
+</div>
+
+<div
+style="
+position:absolute;
+width:220px;
+height:220px;
+background:#f44336;
+top:80px;
+left:120px;
+z-index:5;
+color:white;
+padding:20px;
+">
+z-index:5
+</div>
+
+</div>
+
+
+
+
+
+<h3>Qué ocurre</h3>
+
+<p>
+La caja roja aparece encima porque:
+</p>
+
+<pre>
+5 > 1
+</pre>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>9. Regla CRÍTICA de z-index</h2>
+
+<div class="warning">
+z-index SOLO funciona en elementos posicionados.
+</div>
+
+<p>
+Esto significa:
+</p>
+
+<pre>
+position:relative;
+position:absolute;
+position:fixed;
+position:sticky;
+</pre>
+
+<p>
+Pero NO con:
+</p>
+
+<pre>
+position:static;
+</pre>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>10. Contextos de apilamiento (Stacking Context)</h2>
+
+<p>
+Este es uno de los conceptos MÁS avanzados e importantes de CSS.
+</p>
+
+<p>
+Muchos bugs de z-index ocurren por esto.
+</p>
+
+
+
+
+
+<h3>Problema típico</h3>
+
+<div class="demo">
+
+<div
+style="
+position:relative;
+z-index:1;
+width:300px;
+height:250px;
+background:#2196f3;
+margin:20px;
+color:white;
+padding:20px;
+">
+
+Padre azul z-index:1
+
+<div
+style="
+position:absolute;
+z-index:9999;
+width:150px;
+height:150px;
+background:#f44336;
+top:100px;
+left:180px;
+padding:10px;
+">
+Hijo 9999
+</div>
+
+</div>
+
+<div
+style="
+position:absolute;
+z-index:2;
+width:200px;
+height:200px;
+background:#4caf50;
+top:120px;
+left:400px;
+color:white;
+padding:20px;
+">
+Caja verde z-index:2
+</div>
+
+</div>
+
+
+
+
+
+<h3>Lo sorprendente</h3>
+
+<p>
+Aunque el hijo rojo tiene z-index:9999,
+NO supera a la caja verde.
+</p>
+
+
+
+
+
+<h3>Por qué</h3>
+
+<p>
+Porque el padre azul crea un stacking context.
+</p>
+
+<p>
+Todo lo que esté dentro de él queda limitado
+a su contexto.
+</p>
+
+
+
+
+
+<h3>Regla importante</h3>
+
+<p>
+Los hijos nunca pueden escapar del stacking context del padre.
+</p>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>11. Cómo evitar problemas de z-index</h2>
+
+<h3>Estrategia profesional</h3>
+
+<table class="table">
+
+<tr>
+<th>Elemento</th>
+<th>z-index típico</th>
+</tr>
+
+<tr>
+<td>contenido normal</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>header</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>dropdown</td>
+<td>500</td>
+</tr>
+
+<tr>
+<td>modal</td>
+<td>1000</td>
+</tr>
+
+<tr>
+<td>alertas críticas</td>
+<td>9999</td>
+</tr>
+
+</table>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>12. Cómo se usó todo esto en el hero con video</h2>
+
+<h3>Contenedor principal</h3>
+
+<pre>
+.hero-video{
+    position:relative;
+}
+</pre>
+
+<p>
+Sirve como referencia para:
+</p>
+
+<ul>
+    <li>video</li>
+    <li>overlay</li>
+    <li>contenido</li>
+</ul>
+
+
+
+
+
+<h3>Video</h3>
+
+<pre>
+.bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+</pre>
+
+<p>
+El video:
+</p>
+
+<ul>
+    <li>sale del flujo</li>
+    <li>cubre el contenedor</li>
+    <li>permite capas encima</li>
+</ul>
+
+
+
+
+
+<h3>Overlay</h3>
+
+<pre>
+.overlay{
+    position:absolute;
+    inset:0;
+}
+</pre>
+
+<p>
+Inset:0 equivale a:
+</p>
+
+<pre>
+top:0;
+right:0;
+bottom:0;
+left:0;
+</pre>
+
+
+
+
+
+<h3>Contenido encima</h3>
+
+<pre>
+.hero-content{
+    position:absolute;
+    z-index:2;
+}
+</pre>
+
+<p>
+El z-index garantiza:
+</p>
+
+<ul>
+    <li>texto sobre overlay</li>
+    <li>overlay sobre video</li>
+</ul>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>13. Resumen profesional</h2>
+
+<table class="table">
+
+<tr>
+<th>Propiedad</th>
+<th>Qué hace realmente</th>
+</tr>
+
+<tr>
+<td>static</td>
+<td>flujo normal</td>
+</tr>
+
+<tr>
+<td>relative</td>
+<td>referencia y desplazamiento visual</td>
+</tr>
+
+<tr>
+<td>absolute</td>
+<td>posición libre fuera del flujo</td>
+</tr>
+
+<tr>
+<td>fixed</td>
+<td>pegado a pantalla</td>
+</tr>
+
+<tr>
+<td>sticky</td>
+<td>se fija al hacer scroll</td>
+</tr>
+
+<tr>
+<td>z-index</td>
+<td>controla capas</td>
+</tr>
+
+</table>
+
+
+
+
+
+<!-- ====================================================== -->
+<h2>14. Conclusión</h2>
+
+<p>
+Dominar position y z-index significa dominar:
+</p>
+
+<ul>
+    <li>capas visuales</li>
+    <li>superposición</li>
+    <li>componentes modernos</li>
+    <li>interfaces complejas</li>
+    <li>animaciones</li>
+    <li>hero sections</li>
+    <li>modales</li>
+</ul>
+
+<p>
+La mayoría de problemas complejos de CSS
+provienen de:
+</p>
+
+<ul>
+    <li>flujo del documento</li>
+    <li>stacking context</li>
+    <li>mal uso de absolute</li>
+    <li>z-index descontrolados</li>
+</ul>
+
+<p>
+Entender estos conceptos profundamente te permitirá construir interfaces
+mucho más avanzadas y profesionales.
+</p>
+
+</body>
+</html>

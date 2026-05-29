@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixed + Absolute</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 200vh; /* para poder hacer scroll */
+      background: #f4f4f4;
+    }
+
+    /* CONTENEDOR FIJO */
+    .chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      width: 320px;
+      height: 420px;
+
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .chat-header {
+      height: 70px;
+      background: #4f46e5;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      padding: 16px;
+
+      position: relative;
+    }
+
+    /* BADGE ABSOLUTO */
+    .notification {
+      position: absolute;
+
+      top: 10px;
+      right: 10px;
+
+      width: 24px;
+      height: 24px;
+
+      border-radius: 50%;
+      background: red;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* CONTENIDO */
+    .chat-body {
+      padding: 16px;
+      height: calc(100% - 70px);
+      overflow-y: auto;
+    }
+
+    .message {
+      background: #eef2ff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      width: fit-content;
+      max-width: 80%;
+    }
+
+    /* BOTÓN FLOTANTE ABSOLUTO */
+    .floating-btn {
+      position: absolute;
+
+      bottom: 16px;
+      right: 16px;
+
+      width: 56px;
+      height: 56px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: #10b981;
+      color: white;
+
+      font-size: 28px;
+      cursor: pointer;
+
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="padding:40px;">
+    Ejemplo de fixed + absolute
+  </h1>
+
+  <p style="padding:0 40px;">
+    Haz scroll y observa cómo el widget permanece fijo.
+  </p>
+
+  <!-- PADRE FIXED -->
+  <div class="chat-widget">
+
+    <div class="chat-header">
+      Chat soporte
+
+      <!-- HIJO ABSOLUTE -->
+      <div class="notification">3</div>
+    </div>
+
+    <div class="chat-body">
+      <div class="message">Hola 👋</div>
+      <div class="message">¿Necesitas ayuda?</div>
+      <div class="message">Este panel está fixed.</div>
+      <div class="message">
+        Y los elementos internos usan absolute.
+      </div>
+    </div>
+
+    <!-- OTRO ABSOLUTE -->
+    <button class="floating-btn">+</button>
+
+  </div>
+
+</body>
+</html>

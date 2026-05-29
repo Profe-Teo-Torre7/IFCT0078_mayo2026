@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section {
+
+            color: white;
+
+            width: 100%;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+
+            background-attachment: fixed;
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        h1 {
+            font-size: 5.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        header {
+            font-family: "Roboto Flex", sans-serif;
+            font-weight: 600;
+            background-color: aliceblue;
+            font-size: 4rem;
+            text-align: center;
+            padding: 1rem;
+            color: rgba(18, 102, 176, 0.467)
+        }
+
+        nav {
+            padding-bottom: 0.3rem;
+            padding-top: 0.3rem;
+            text-align: right;
+            background-color: rgba(0, 0, 0, 0.484);
+            position: sticky;
+            top: 10px;
+            z-index: 1001;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        /* Clases */
+
+        .primero {
+            background-image: url("https://picsum.photos/id/21/3008/2008.jpg");
+        }
+
+        .segundo {
+            background-image: url("https://picsum.photos/id/16/2500/1667.jpg");
+        }
+
+        .contenido {
+            /* width: 80vw; */
+            background-color: rgba(0, 0, 0, 0.311);
+            text-align: center;
+            padding: 2rem;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            /* Bordes */
+            border-radius: 20px;
+            box-shadow:
+                0 0 10px,
+                0 0 50px;
+
+        }
+
+        .arriba {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.293);
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 3px 6px;
+            z-index: 1000;
+        }
+
+        .arriba a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        Juncal Flamenco: Ole y Ole
+    </header>
+    <nav>
+        <a href="">Inicio</a>
+        <a href="">Cante</a>
+        <a href="">Baile</a>
+        <a href="">Precios</a>
+    </nav>
+    <section class="primero">
+        <div class="contenido">
+            <h1>Soy el primero</h1>
+            <p>Lorem ipsum dolor sit amet </p>
+        </div>
+    </section>
+
+
+
+    <section class="segundo">
+        <div class="contenido">
+            <h1>Soy el segundo</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eius qui esse illum ducimus harum facere
+                cum commodi modi beatae culpa, officia, tempora mollitia iure quis dolor adipisci possimus tenetur.
+            </p>
+        </div>
+    </section>
+    <section class="primero">
+        <div class="contenido">
+            <h1>Soy el tercero</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente neque, numquam expedita voluptatum,
+                doloremque illum blanditiis obcaecati impedit vel explicabo voluptates eaque! A deserunt harum cum
+                sapiente nisi et incidunt!</p>
+        </div>
+    </section>
+    <section class="segundo">
+        <div class="contenido">
+            <h1>Soy el cuarto</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente neque, numquam expedita voluptatum,
+                doloremque illum blanditiis obcaecati impedit vel explicabo voluptates eaque! A deserunt harum cum
+                sapiente nisi et incidunt!</p>
+        </div>
+    </section>
+    <div class="arriba">
+        <a href="#">Volver</a>
+    </div>
+</body>
+
+</html>

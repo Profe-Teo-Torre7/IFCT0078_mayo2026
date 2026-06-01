@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+        }
+        html{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+
+        .lobster-regular {
+            text-align: center;
+            font-family: "Lobster", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.831);
+
+            width: 70%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .portada {
+            position:relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url("img/muchacha.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        .fondo{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.327);
+        }
+        .negrita{
+            font-weight: bold;
+        }
+        .fijo{
+            position:fixed;
+            top:1.3rem;
+            left:1.1rem;
+            z-index: 1000;
+            font-size: 1.2rem;
+            color:white;
+        }
+        .flecha{
+            position: absolute;
+            bottom:2rem;
+            left:50%;
+            color:white;
+            background-color: rgba(255, 255, 255, 0.436);
+            font-size:1.5rem;
+            padding:0.5rem;
+            /* border:1px solid rgb(254, 254, 255); */
+            border-radius: 2rem;
+        }
+        .flecha a{
+            color:white;
+        }
+        .flecha:hover{
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .flecha:hover i{
+            color:rgba(255, 255, 255, 0.483);
+        }
+        .pagina{
+            width: 100%;
+            height:100vh;
+            background-color: aqua;
+        }
+    </style>
+    <title>Roadtrip</title>
+</head>
+
+<body>
+    <header class="fijo">
+        <p>
+            <span class="negrita">Road Trip</span> by TEMPLATED
+        </p>
+    </header>
+
+    <section class="portada">
+        <div class="fondo">
+            <h1 class="lobster-regular">
+                This is a road trip
+            </h1>
+            <p class="flecha">
+                <a href=""><i class="fa-solid fa-angle-down"></i></a>
+                
+            </p>
+        </div>
+    </section>
+<section class="pagina">
+
+</section>
+
+
+
+
+</body>
+
+</html>

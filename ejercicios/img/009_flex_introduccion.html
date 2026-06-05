@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Completa de CSS Flexbox</title>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --secondary:#1e293b;
+    --light:#f8fafc;
+    --border:#dbeafe;
+}
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    line-height:1.7;
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+header{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:50px;
+    text-align:center;
+}
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+}
+
+section{
+    background:white;
+    margin-bottom:30px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+h1,h2,h3{
+    color:#0f172a;
+}
+
+pre{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:15px;
+    border-radius:8px;
+    overflow:auto;
+}
+
+.demo{
+    border:2px solid var(--primary);
+    padding:10px;
+    margin-top:15px;
+    margin-bottom:20px;
+    min-height:80px;
+}
+
+.box{
+    width:70px;
+    height:70px;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.flex{
+    display:flex;
+    gap:10px;
+}
+
+.column{
+    flex-direction:column;
+}
+
+.wrap{
+    flex-wrap:wrap;
+}
+
+.center{
+    justify-content:center;
+}
+
+.end{
+    justify-content:flex-end;
+}
+
+.between{
+    justify-content:space-between;
+}
+
+.around{
+    justify-content:space-around;
+}
+
+.evenly{
+    justify-content:space-evenly;
+}
+
+.align-center{
+    align-items:center;
+    height:150px;
+}
+
+.align-end{
+    align-items:flex-end;
+    height:150px;
+}
+
+.grow-demo .box:nth-child(2){
+    flex-grow:1;
+}
+
+.shrink-demo{
+    width:300px;
+}
+
+.shrink-demo .box{
+    width:180px;
+}
+
+.shrink-demo .box:nth-child(2){
+    flex-shrink:3;
+}
+
+.basis-demo .box:nth-child(2){
+    flex-basis:300px;
+}
+
+.order-demo .box:nth-child(1){
+    order:3;
+}
+
+.order-demo .box:nth-child(2){
+    order:1;
+}
+
+.order-demo .box:nth-child(3){
+    order:2;
+}
+
+.align-self-demo{
+    height:200px;
+    align-items:flex-start;
+}
+
+.align-self-demo .box:nth-child(2){
+    align-self:flex-end;
+}
+
+.case{
+    border-left:5px solid #2563eb;
+    background:#eff6ff;
+    padding:15px;
+    margin:15px 0;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Guía Completa de CSS Flexbox</h1>
+<p>Desde nivel básico hasta avanzado con ejemplos prácticos y casos reales.</p>
+<ul>
+    <li><a href="https://medium.com/@roy-chng/a-comprehensive-guide-to-css-flexbox-with-real-world-examples-d41c6bb9129d">Tutorial con ejemplos</a>
+</li>
+    <li><a href="https://tobiasahlin.com/blog/common-flexbox-patterns/">Guia con patrones de uso</a>
+</li>
+    <li><a href="https://www.quackit.com/css/flexbox/tutorial/">Tutorial muy completo</a>
+</li>
+</ul>
+
+</header>
+
+<main>
+
+<section>
+<h2>1. ¿Qué es Flexbox?</h2>
+
+<p>
+Flexbox (Flexible Box Layout) es un sistema de diseño unidimensional de CSS
+que permite distribuir, alinear y organizar elementos dentro de un contenedor
+de manera flexible y eficiente.
+</p>
+
+<p>
+Antes de Flexbox era común utilizar floats, inline-block o hacks complejos
+para crear diseños. Flexbox simplifica enormemente la alineación horizontal y
+vertical.
+</p>
+
+<pre>
+.contenedor{
+    display:flex;
+}
+</pre>
+
+<p>
+Al aplicar <strong>display:flex</strong>, el elemento se convierte en un
+contenedor flex y todos sus hijos pasan a ser elementos flexibles.
+</p>
+</section>
+
+<section>
+<h2>2. Ejes principales de Flexbox</h2>
+
+<p>Flexbox trabaja con dos ejes:</p>
+
+<ul>
+<li><strong>Main Axis</strong> (Eje principal)</li>
+<li><strong>Cross Axis</strong> (Eje transversal)</li>
+</ul>
+
+<p>
+Por defecto el eje principal es horizontal (fila).
+</p>
+
+<pre>
+display:flex;
+flex-direction:row;
+</pre>
+
+</section>
+
+<section>
+<h2>3. flex-direction</h2>
+
+<p>
+Define la dirección del eje principal.
+</p>
+
+<h3>row (por defecto)</h3>
+
+<pre>
+flex-direction:row;
+</pre>
+
+<div class="demo flex">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>column</h3>
+
+<pre>
+flex-direction:column;
+</pre>
+
+<div class="demo flex column">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>Valores disponibles</h3>
+
+<ul>
+<li>row</li>
+<li>row-reverse</li>
+<li>column</li>
+<li>column-reverse</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>4. justify-content</h2>
+
+<p>
+Controla la distribución de los elementos en el eje principal.
+</p>
+
+<h3>center</h3>
+
+<pre>
+justify-content:center;
+</pre>
+
+<div class="demo flex center">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>flex-end</h3>
+
+<pre>
+justify-content:flex-end;
+</pre>
+
+<div class="demo flex end">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>space-between</h3>
+
+<pre>
+justify-content:space-between;
+</pre>
+
+<div class="demo flex between">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>space-around</h3>
+
+<div class="demo flex around">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>space-evenly</h3>
+
+<div class="demo flex evenly">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>5. align-items</h2>
+
+<p>
+Alinea elementos sobre el eje secundario.
+</p>
+
+<h3>center</h3>
+
+<pre>
+align-items:center;
+</pre>
+
+<div class="demo flex align-center">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<h3>flex-end</h3>
+
+<pre>
+align-items:flex-end;
+</pre>
+
+<div class="demo flex align-end">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>6. flex-wrap</h2>
+
+<p>
+Permite que los elementos salten a una nueva línea cuando no hay espacio.
+</p>
+
+<pre>
+flex-wrap:wrap;
+</pre>
+
+<div class="demo flex wrap">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+<div class="box">5</div>
+<div class="box">6</div>
+<div class="box">7</div>
+<div class="box">8</div>
+</div>
+
+<p>
+Valores:
+</p>
+
+<ul>
+<li>nowrap</li>
+<li>wrap</li>
+<li>wrap-reverse</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>7. gap</h2>
+
+<p>
+Añade separación entre elementos flex.
+</p>
+
+<pre>
+display:flex;
+gap:20px;
+</pre>
+
+<p>
+Es preferible al uso excesivo de márgenes porque mantiene una separación
+consistente.
+</p>
+
+</section>
+
+<section>
+
+<h2>8. flex-grow</h2>
+
+<p>
+Permite que un elemento crezca ocupando espacio libre.
+</p>
+
+<pre>
+.item{
+    flex-grow:1;
+}
+</pre>
+
+<div class="demo flex grow-demo">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+<p>
+El elemento 2 ocupa todo el espacio disponible restante.
+</p>
+
+</section>
+
+<section>
+
+<h2>9. flex-shrink</h2>
+
+<p>
+Determina cuánto puede encogerse un elemento.
+</p>
+
+<pre>
+.item{
+    flex-shrink:3;
+}
+</pre>
+
+<div class="demo flex shrink-demo">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>10. flex-basis</h2>
+
+<p>
+Define el tamaño inicial del elemento antes de repartir el espacio.
+</p>
+
+<pre>
+.item{
+    flex-basis:300px;
+}
+</pre>
+
+<div class="demo flex basis-demo">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>11. shorthand flex</h2>
+
+<p>
+Combina grow, shrink y basis.
+</p>
+
+<pre>
+flex: 1 1 200px;
+</pre>
+
+<p>
+Equivale a:
+</p>
+
+<pre>
+flex-grow:1;
+flex-shrink:1;
+flex-basis:200px;
+</pre>
+
+</section>
+
+<section>
+
+<h2>12. order</h2>
+
+<p>
+Permite cambiar el orden visual de los elementos.
+</p>
+
+<pre>
+.item{
+    order:2;
+}
+</pre>
+
+<div class="demo flex order-demo">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>13. align-self</h2>
+
+<p>
+Sobrescribe align-items para un único elemento.
+</p>
+
+<pre>
+.item{
+    align-self:flex-end;
+}
+</pre>
+
+<div class="demo flex align-self-demo">
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>14. Casos de uso reales</h2>
+
+<div class="case">
+<h3>Navbar</h3>
+
+<pre>
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+</pre>
+
+<p>
+Ideal para logo a la izquierda y menú a la derecha.
+</p>
+</div>
+
+<div class="case">
+<h3>Menú horizontal</h3>
+
+<pre>
+ul{
+    display:flex;
+    gap:20px;
+}
+</pre>
+
+<p>
+Permite distribuir enlaces de navegación fácilmente.
+</p>
+</div>
+
+<div class="case">
+<h3>Centrado perfecto</h3>
+
+<pre>
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+</pre>
+
+<p>
+El método más utilizado para centrar contenido horizontal y verticalmente.
+</p>
+</div>
+
+<div class="case">
+<h3>Tarjetas responsivas</h3>
+
+<pre>
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+</pre>
+
+<p>
+Las tarjetas se reorganizan automáticamente.
+</p>
+</div>
+
+<div class="case">
+<h3>Sidebar + contenido</h3>
+
+<pre>
+.layout{
+    display:flex;
+}
+
+.sidebar{
+    width:250px;
+}
+
+.content{
+    flex-grow:1;
+}
+</pre>
+
+<p>
+Patrón extremadamente utilizado en dashboards.
+</p>
+</div>
+
+<div class="case">
+<h3>Galerías</h3>
+
+<pre>
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+}
+</pre>
+
+<p>
+Distribución automática de imágenes.
+</p>
+</div>
+
+</section>
+
+<section>
+
+<h2>15. Flexbox vs Grid</h2>
+
+<table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
+<tr>
+<th>Flexbox</th>
+<th>Grid</th>
+</tr>
+
+<tr>
+<td>1 dimensión</td>
+<td>2 dimensiones</td>
+</tr>
+
+<tr>
+<td>Filas o columnas</td>
+<td>Filas y columnas simultáneamente</td>
+</tr>
+
+<tr>
+<td>Excelente para componentes</td>
+<td>Excelente para layouts completos</td>
+</tr>
+
+<tr>
+<td>Más simple</td>
+<td>Más potente</td>
+</tr>
+</table>
+
+</section>
+
+<section>
+
+<h2>16. Buenas prácticas profesionales</h2>
+
+<ul>
+<li>Usar gap en lugar de márgenes cuando sea posible.</li>
+<li>Evitar order para lógica importante de accesibilidad.</li>
+<li>Combinar Flexbox y Grid según la necesidad.</li>
+<li>Usar flex-grow para layouts fluidos.</li>
+<li>Evitar anidar demasiados contenedores flex innecesariamente.</li>
+<li>Probar siempre en móviles.</li>
+<li>Comprender claramente el eje principal y transversal.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>17. Resumen rápido</h2>
+
+<pre>
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+</pre>
+
+<p>
+Dominar Flexbox es uno de los conocimientos más importantes para cualquier
+desarrollador frontend moderno. La mayoría de componentes de interfaces,
+navegaciones, formularios, paneles, tarjetas y dashboards utilizan Flexbox
+como base principal de distribución.
+</p>
+
+</section>
+
+</main>
+
+<footer>
+Guía Profesional de CSS Flexbox - Nivel Junior a Senior
+</footer>
+
+</body>
+</html>

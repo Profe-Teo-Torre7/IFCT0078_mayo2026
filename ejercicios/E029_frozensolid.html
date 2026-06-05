@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        html{
+            font-family: Raleway, sans-serif;
+        }
+
+        header {
+            
+            padding: 0.7rem 0;
+            background-color: rgba(0, 0, 0, 0.79);
+            color:white;
+            font-size: 1.8vw;
+            font-weight: 500;
+
+            position: fixed;
+            top: 0;
+
+            width: 100%;
+            display: flex;
+            flex-shrink: 1;
+            justify-content: space-between;
+
+        }
+
+        section {
+            padding-top:9rem;
+            height: 90vh;
+            border-bottom: 15px solid black;
+            padding-left: 4.5rem;
+
+        }
+        p{
+            padding-right: 5rem;
+            padding-left:5rem;
+        }
+        h2{
+            font-size: 7rem;
+        }
+
+        .primero{
+            background-image: url("img/fondo_sec1.webp");
+        }
+        .primero i{
+            color:#41d1eb;
+        }
+        .subtitulo{
+            font-size: 3rem;
+            font-weight: 700;
+            margin-top:2.3rem;
+
+        }
+        .texto{
+            margin-top:2rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .subrayado{
+            text-decoration: underline;
+            text-decoration-thickness: 1.1vh;
+            text-decoration-style: solid;
+        }
+        .subr-azul{
+            text-decoration-color: #41d1eb;
+        }
+        .subr-morado{
+            text-decoration-color: #be418c;
+        }
+        .subr-verde{
+            text-decoration-color: rgba(10, 185, 10, .6);
+        }        
+    </style>
+</head>
+
+<body>
+    <header>
+        <p>frozen solid designs.</p>
+        <p><i class="fa-brands fa-youtube"></i></p>
+        <p><i class="fa-solid fa-envelope"></i> jason@frozensoliddesigns.com</p>
+    </header>
+    <section class="primero">
+        <h2>
+            <i class="fa-solid fa-feather fa-flip-horizontal"></i> 
+            Affordable</h2>
+        <p class="subtitulo">
+            We provide solutions for <span class="subrayado subr-morado">every budget</span> .
+        </p>
+        <p class="texto">
+            From <span class="subrayado subr-azul">simple</span>  static sites to <span class="subrayado subr-verde">complex</span>  custom web software - we will work with you to build what you're looking for.
+        </p>
+    </section>
+    <section class="segundo">
+        <h2>sección 2</h2>
+    </section>
+</body>
+
+</html>

@@ -10,6 +10,8 @@
             background-color: #eee;
             padding: 20px;
             transition: 0.3s;
+            width:500px;
+            float:left;
         }
 
         .caja a {
@@ -27,14 +29,30 @@
         .caja:hover a {
             color: white;
         }
+        .contenedor{
+            width: 100%;
+            height: 500px;
+            border:1px solid blue;
+        }
+        .otra{
+            background-color: aqua;
+            height:200px;
+            width:200px;
+            float:left;
+        }
     </style>
 
 </head>
 
 <body>
+    <div class="contenedor">
     <div class="caja">
         <a href="#">Mi enlace</a>
     </div>
+    <div class="otra">
+        este es otro elemento
+    </div>
+</div>
 </body>
 
 </html>

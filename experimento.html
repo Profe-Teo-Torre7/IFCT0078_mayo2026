@@ -6,39 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .caja {
-            background-color: #eee;
-            padding: 20px;
-            transition: 0.3s;
-            width:500px;
-            float:left;
-        }
-
-        .caja a {
-            color: black;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        /* Cuando el ratón pasa sobre el div */
-        .caja:hover {
-            background-color: #333;
-        }
-
-        /* Cambiar el color del enlace al hacer hover en el div */
-        .caja:hover a {
-            color: white;
-        }
-        .contenedor{
-            width: 100%;
+        .contenedor {
+            width: 50%;
             height: 500px;
-            border:1px solid blue;
+            border: 1px solid blue;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
         }
-        .otra{
-            background-color: aqua;
-            height:200px;
-            width:200px;
-            float:left;
+
+        .col1,
+        .col2,
+        .col3 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .col1 img {
+            width: 100px;
+
+        }
+
+        .col2 img {
+            width: 150px;
+        }
+
+        .col3 img {
+            width: 180px;
+
         }
     </style>
 
@@ -46,13 +42,24 @@
 
 <body>
     <div class="contenedor">
-    <div class="caja">
-        <a href="#">Mi enlace</a>
+        <div class="col1">
+            <div><img src="ejercicios/img/dribble_3.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_4.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_7.png" alt=""></div>
+
+
+        </div>
+        <div class="col2">
+            <div><img src="ejercicios/img/dribble_3.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_4.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_7.png" alt=""></div>
+        </div>
+        <div class="col3">
+            <div><img src="ejercicios/img/dribble_3.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_4.png" alt=""></div>
+            <div><img src="ejercicios/img/dribble_7.png" alt=""></div>
+        </div>
     </div>
-    <div class="otra">
-        este es otro elemento
-    </div>
-</div>
 </body>
 
 </html>

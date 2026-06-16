@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a javascript</title>
+    <script>
+        // Esto es un comentario de una linea
+
+        /*
+        esto 
+        es 
+        un comentario
+        de varias lineas
+        */    
+/*
+       const COLOR = "azul";
+
+       let nombre = "Daniela 'juncal flamenco' ";
+       let edad = 21;
+       let temperatura = 12;
+       let numero = 873;
+       
+       console.log(temperatura);
+       temperatura = 200;
+       temperatura = -1;
+       console.log(temperatura);
+
+       // define 
+       let curso;
+
+       // inicializa
+       curso = "Desarrollo web";
+
+       // utiliza
+       console.log(curso);
+
+*/
+        let estudiante = "Paco García";
+        let asignatura = "Matemáticas";
+        let nota = 6.25;
+
+        // Lado del cuadrado
+        let lado = 22.43;
+        let cuadrado = lado * lado;
+
+
+        // Precio con IVA
+        const IVA = 0.21;
+        let precio = 100;
+        //let total = precio + precio * IVA;
+        let total = precio * (1 + IVA);
+
+        </script>
+</head>
+
+<body>
+    <button onclick="
+                    console.log('Estudiante: ' + estudiante);
+                    console.log('Materia: ' + asignatura);
+                    console.log('Calificación: ' + nota);">
+        Datos del estudiante
+    </button>
+
+    <button onclick="console.log('Area: ' + cuadrado);">
+        Área del Cuadrado 
+    </button>
+    <button onclick="console.log(total)">
+        IVA
+    </button>
+ 
+    
+</body>
+</html>

@@ -138,5 +138,38 @@ Comparación:
     Pares 0-100
   </button>
     
+      <button onclick="
+                    for(let i = 100; i > 0; i -= 2){
+                        console.log('i: ' + i);
+                    }">
+    Pares 0-100 decrecientes
+  </button>
+
+  <button onclick="
+                    let contador = 0;
+                    while (contador <= 100) {
+                        console.log('Contador: ' + contador);
+                        contador += 2;
+                        
+                    }
+                    ">
+    Bucles while
+  </button>
+
+  <hr>
+  <h2>Ejercicios</h2>
+  <h4>1. Pedir un número al usuario y decir si es positivo o negativo</h4>
+  <button onclick="
+                   let numero = prompt('Dime un numerito',0);
+                   if(numero > 0){
+                    alert('El número ' + numero + ' es POSITIVO');
+                   }
+                   else{
+                    alert('El número ' + numero + ' es NEGATIVO');
+                   }
+                   ">
+    mayor o menor
+  </button>
+  
 </body>
 </html>

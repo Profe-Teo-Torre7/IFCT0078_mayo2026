@@ -51,6 +51,9 @@
         //let total = precio + precio * IVA;
         let total = precio * (1 + IVA);
 
+        // ----------------------
+        let anio = 2026;
+
         </script>
 </head>
 
@@ -68,7 +71,72 @@
     <button onclick="console.log(total)">
         IVA
     </button>
+
+    <button onclick="
+                    let edad = prompt('Dime tu edad',33);
+                    alert('Tu edad es ' + edad);
+                    ">
+    Pregunta
+    </button>
+
+    <button onclick="
+                    let acuerdo = confirm('¿Está de acuerdo?');
+                    alert(acuerdo);">
+        Confirm
+    </button> 
+    <br><br>
+
+Comparación:
+  <ul>
+    <li>Mayor que A > B </li>
+    <li>Menor que A < B</li>
+    <li>Igualdad A == B</li>
+    <li>Igualdad estricta A === B</li>
+  </ul>
+
+  <button onclick="alert('10' === 10)">
+    Mayor
+  </button>
+
+
+  <button onclick="
+                    let ahora = prompt('Dime el año actual',2026);
+                    if(anio == ahora) alert('El año es correcto');
+                    ">
+    IF 
+  </button>
  
+    <button onclick="
+                    ahora = prompt('Dime el año actual',2026);
+                    if(anio == ahora) {
+                        alert('El año es correcto');
+                    }
+                    else{
+                        alert('El año es incorrecto');
+                    }
+                    ">
+    IF ELSE
+  </button>
+  <button onclick="
+                    for(let i = 0; i < 10; i++){
+                        console.log('i: ' + i);
+                    }">
+    Bucles FOR
+  </button>
+
+  <button onclick="
+                    for(let i = 10; i > 0; i--){
+                        console.log('i: ' + i);
+                    }">
+    Bucles FOR decreciente
+  </button>
+ 
+    <button onclick="
+                    for(let i = 0; i < 100; i += 2){
+                        console.log('i: ' + i);
+                    }">
+    Pares 0-100
+  </button>
     
 </body>
 </html>

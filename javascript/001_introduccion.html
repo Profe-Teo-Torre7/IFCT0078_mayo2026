@@ -177,7 +177,65 @@ Comparación:
   </button>
 
   <h4>2. Dada la nota de un examen, calcular la calificación</h4>
-  
+
+  <button onclick="
+                let nota_examen = prompt('Dime la nota');
+                if(nota_examen < 5){
+                    alert('SUSPENSO');
+                }
+                else{
+                    if(nota_examen < 7){
+                        alert('APROBADO');
+                    }
+                    else{
+                        if(nota_examen < 9){
+                            alert('NOTABLE');
+                        }
+                        else{
+                            alert('SOBRESALIENTE');
+                        }
+                    }
+                }
+ ">
+    Calificación
+  </button>
+
+  <h4>3. Adivina el número: Dado un número, intentar adivinarlo en 5 intentos.</h4>
+  <button onclick="
+                const OBJETIVO = Math.floor(Math.random() * 100) + 1;
+                //console.log(OBJETIVO);
+
+                const LIMITE = 5;
+
+                let acierto = false;
+                let intentos = 1;
+                
+                let numero_candidato = prompt('¿Cual es el numerito?');
+
+                while(!acierto && intentos <= LIMITE){
+                    
+                    if(numero_candidato == OBJETIVO){
+                        acierto = true;
+                        alert('¡¡¡ENHORABUENA!!! has acertado');
+                    }
+                    else{
+                        if(intentos < LIMITE){
+                            numero_candidato = prompt('Fallo. Te quedan ' +  (LIMITE-intentos) + ' intentos');
+                        }
+                    }
+                    intentos ++;
+                }
+
+                if(!acierto){
+                    alert('Fin de la partida. El número era ' +  OBJETIVO);
+                }
+
+   "
+  >
+
+    Adivina el número
+  </button>
+
   
 </body>
 </html>

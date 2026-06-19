@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +13,30 @@
         es 
         un comentario
         de varias lineas
-        */    
-/*
-       const COLOR = "azul";
-
-       let nombre = "Daniela 'juncal flamenco' ";
-       let edad = 21;
-       let temperatura = 12;
-       let numero = 873;
-       
-       console.log(temperatura);
-       temperatura = 200;
-       temperatura = -1;
-       console.log(temperatura);
-
-       // define 
-       let curso;
-
-       // inicializa
-       curso = "Desarrollo web";
-
-       // utiliza
-       console.log(curso);
-
-*/
+        */
+        /*
+               const COLOR = "azul";
+        
+               let nombre = "Daniela 'juncal flamenco' ";
+               let edad = 21;
+               let temperatura = 12;
+               let numero = 873;
+               
+               console.log(temperatura);
+               temperatura = 200;
+               temperatura = -1;
+               console.log(temperatura);
+        
+               // define 
+               let curso;
+        
+               // inicializa
+               curso = "Desarrollo web";
+        
+               // utiliza
+               console.log(curso);
+        
+        */
         let estudiante = "Paco García";
         let asignatura = "Matemáticas";
         let nota = 6.25;
@@ -52,9 +53,18 @@
         let total = precio * (1 + IVA);
 
         // ----------------------
+
+        // En lenguaje C
+        // int x ;
+        // x = "hola";
+
         let anio = 2026;
 
-        </script>
+        // obsoleto
+        var nombre_variable = 0;
+
+
+    </script>
 </head>
 
 <body>
@@ -66,7 +76,7 @@
     </button>
 
     <button onclick="console.log('Area: ' + cuadrado);">
-        Área del Cuadrado 
+        Área del Cuadrado
     </button>
     <button onclick="console.log(total)">
         IVA
@@ -76,36 +86,38 @@
                     let edad = prompt('Dime tu edad',33);
                     alert('Tu edad es ' + edad);
                     ">
-    Pregunta
+        Pregunta
     </button>
 
     <button onclick="
                     let acuerdo = confirm('¿Está de acuerdo?');
                     alert(acuerdo);">
         Confirm
-    </button> 
+    </button>
     <br><br>
 
-Comparación:
-  <ul>
-    <li>Mayor que A > B </li>
-    <li>Menor que A < B</li>
-    <li>Igualdad A == B</li>
-    <li>Igualdad estricta A === B</li>
-  </ul>
-
-  <button onclick="alert('10' === 10)">
-    Mayor
-  </button>
+    Comparación:
+    <ul>
+        <li>Mayor que A > B </li>
+        <li>Menor que A < B</li>
+        <li>Igualdad A == B</li>
+        <li>Igualdad estricta A === B</li>
+    </ul>
 
 
-  <button onclick="
+
+    <button onclick="alert('10' === 10)">
+        Mayor
+    </button>
+
+
+    <button onclick="
                     let ahora = prompt('Dime el año actual',2026);
                     if(anio == ahora) alert('El año es correcto');
                     ">
-    IF 
-  </button>
- 
+        IF
+    </button>
+
     <button onclick="
                     ahora = prompt('Dime el año actual',2026);
                     if(anio == ahora) {
@@ -115,37 +127,38 @@ Comparación:
                         alert('El año es incorrecto');
                     }
                     ">
-    IF ELSE
-  </button>
-  <button onclick="
+        IF ELSE
+    </button>
+    <button onclick="
                     for(let i = 0; i < 10; i++){
                         console.log('i: ' + i);
-                    }">
-    Bucles FOR
-  </button>
+                    }
+                    console.log('FIN')">
+        Bucles FOR
+    </button>
 
-  <button onclick="
+    <button onclick="
                     for(let i = 10; i > 0; i--){
                         console.log('i: ' + i);
                     }">
-    Bucles FOR decreciente
-  </button>
- 
+        Bucles FOR decreciente
+    </button>
+
     <button onclick="
                     for(let i = 0; i < 100; i += 2){
                         console.log('i: ' + i);
                     }">
-    Pares 0-100
-  </button>
-    
-      <button onclick="
+        Pares 0-100
+    </button>
+
+    <button onclick="
                     for(let i = 100; i > 0; i -= 2){
                         console.log('i: ' + i);
                     }">
-    Pares 0-100 decrecientes
-  </button>
+        Pares 0-100 decrecientes
+    </button>
 
-  <button onclick="
+    <button onclick="
                     let contador = 0;
                     while (contador <= 100) {
                         console.log('Contador: ' + contador);
@@ -153,13 +166,13 @@ Comparación:
                         
                     }
                     ">
-    Bucles while
-  </button>
+        Bucles while
+    </button>
 
-  <hr>
-  <h2>Ejercicios</h2>
-  <h4>1. Pedir un número al usuario y decir si es positivo o negativo</h4>
-  <button onclick="
+    <hr>
+    <h2>Ejercicios</h2>
+    <h4>1. Pedir un número al usuario y decir si es positivo o negativo</h4>
+    <button onclick="
                    let numero = prompt('Dime un numerito',0);
                    if(numero > 0){
                         alert('El número ' + numero + ' es POSITIVO');
@@ -173,12 +186,12 @@ Comparación:
                             }
                    }
                    ">
-    mayor o menor
-  </button>
+        mayor o menor
+    </button>
 
-  <h4>2. Dada la nota de un examen, calcular la calificación</h4>
+    <h4>2. Dada la nota de un examen, calcular la calificación</h4>
 
-  <button onclick="
+    <button onclick="
                 let nota_examen = prompt('Dime la nota');
                 if(nota_examen < 5){
                     alert('SUSPENSO');
@@ -197,13 +210,13 @@ Comparación:
                     }
                 }
  ">
-    Calificación
-  </button>
+        Calificación
+    </button>
 
-  <h4>3. Adivina el número: Dado un número, intentar adivinarlo en 5 intentos.</h4>
-  <button onclick="
+    <h4>3. Adivina el número: Dado un número, intentar adivinarlo en 5 intentos.</h4>
+    <button onclick="
                 const OBJETIVO = Math.floor(Math.random() * 100) + 1;
-                //console.log(OBJETIVO);
+                console.log(OBJETIVO);
 
                 const LIMITE = 5;
 
@@ -230,12 +243,35 @@ Comparación:
                     alert('Fin de la partida. El número era ' +  OBJETIVO);
                 }
 
-   "
-  >
+   ">
 
-    Adivina el número
-  </button>
+        Adivina el número
+    </button>
 
-  
+    <h4>4. Calcular la suma de los números enteros entre 1 y 100</h4>
+    <button onclick="
+        let suma = 0;
+        for(let i = 1; i<=100; i++){
+            //suma = suma + i;
+            suma += i;
+        }
+        alert('La suma con FOR es ' + suma) ;
+
+        // con bucle while
+        suma = 0;
+        let ct = 1;
+        while(ct <= 100){
+            suma += ct;
+            ct ++;
+        }
+        alert('La suma con WHILE es ' + suma);
+
+    "
+    >
+        Suma
+    </button>
+
+
 </body>
+
 </html>

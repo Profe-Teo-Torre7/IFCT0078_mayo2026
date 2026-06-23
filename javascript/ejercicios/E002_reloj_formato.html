@@ -1,81 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reloj con formato</title>
     <style>
-        *{
-            margin:0;
-            padding:0;
+        @font-face {
+            font-family: "seven";
+            src: url("fuentes/fs-sevegment.otf.woff2") format("woff2");
         }
-        body{
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: monospace;
+        }
+
+        body {
             background-color: rgba(250, 235, 215, 0.7);
             height: 100vh;
-            display:flex;
+            display: flex;
             justify-content: center;
             align-items: center;
 
         }
-        .contenedor{
-            width:900px;
-            border:10px solid black;
+
+        .contenedor {
+            width: 900px;
+            border: 10px solid black;
             border-radius: 9px;
             background-color: #d8dece;
-            padding:25px;
+            padding: 25px;
         }
-        .arriba{
-            display:grid;
+
+        .arriba {
+            display: grid;
             grid-template-columns: 80px 1fr 80px;
             align-items: center;
         }
-        .mna{
+
+        .mna {
             font-size: 40px;
             font-weight: bold;
             text-align: center;
         }
 
-        .hora-min{
-            display:grid;
+        .hora-min {
+            display: grid;
             grid-template-columns: auto 0.55em auto;
             justify-content: center;
             align-items: center;
 
-            font-family: "seven",monospace;
+            font-family: "seven", monospace;
             font-size: 150px;
-            
-        }
-        #segundos{
-            font-family: "seven",monospace;
-            font-size: 60px;            
+
         }
 
-        .linea{
+        #segundos {
+            font-family: "seven", monospace;
+            font-size: 60px;
+        }
+
+        .linea {
             height: 3px;
             background-color: black;
-            margin:20px 0;
+            margin: 20px 0;
         }
 
-        .abajo{
+        .abajo {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
-        .celda{
+
+        .celda {
             text-align: center;
             border-right: 2px solid black;
         }
-        .celda:last-child{
+
+        .celda:last-child {
             border-right: none;
+        }
+
+        .etiqueta {
+            font-size: 24px;
+            margin-bottom: 8px;
+
+        }
+
+        .valor {
+            font-family: monospace;
+            font-size: 60px;
         }
 
     </style>
 </head>
+
 <body>
     <div class="contenedor">
         <div class="arriba">
             <div class="mna" id="ampm">AM</div>
             <div class="hora-min" id="reloj">
-                <span id="hora">00</span>
+                <span id="horas">00</span>
                 <span id="puntos">:</span>
                 <span id="minutos">00</span>
             </div>
@@ -87,17 +116,44 @@
         <div class="abajo">
             <div class="celda">
                 <div class="etiqueta">DÍA</div>
-                <div id="diames" class="valor"></div>
+                <div id="diames" class="valor">31</div>
             </div>
             <div class="celda">
                 <div class="etiqueta">MES</div>
-                <div id="mes" class="valor"></div>
+                <div id="mes" class="valor">12</div>
             </div>
             <div class="celda">
                 <div class="etiqueta">DÍA SEM.</div>
-                <div id="diasem" class="valor"></div>
-            </div>                        
+                <div id="diasem" class="valor">JUEVES</div>
+            </div>
         </div>
     </div>
+
+<script>
+        let manejador;
+
+        function muestra_hora() {
+            let fecha = new Date();
+            // let reloj = document.getElementById('reloj');
+            // reloj.innerHTML = fecha;
+            let horas = fecha.getHours();
+            let minutos = fecha.getMinutes();
+            let segundos = fecha.getSeconds();
+
+            let span_horas = document.getElementById('horas');
+            let span_minutos = document.getElementById('minutos');
+            let span_segundos = document.getElementById('segundos');
+
+            span_horas.innerHTML = horas.toString().padStart(2, '0');
+            span_minutos.innerHTML = minutos.toString().padStart(2, '0');
+            span_segundos.innerHTML = segundos.toString().padStart(2, '0');
+
+        }
+        
+        muestra_hora();
+        manejador = setInterval(muestra_hora, 1000);
+  
+    </script>
 </body>
+
 </html>

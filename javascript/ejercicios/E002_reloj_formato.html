@@ -4,17 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reloj con formato</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: rgba(250, 235, 215, 0.7);
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .contenedor{
+            width:900px;
+            border:10px solid black;
+            border-radius: 9px;
+            background-color: #d8dece;
+            padding:25px;
+        }
+        .arriba{
+            display:grid;
+            grid-template-columns: 80px 1fr 80px;
+            align-items: center;
+        }
+        .mna{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .hora-min{
+            display:grid;
+            grid-template-columns: auto 0.55em auto;
+            justify-content: center;
+            align-items: center;
+
+            font-family: "seven",monospace;
+            font-size: 150px;
+            
+        }
+        #segundos{
+            font-family: "seven",monospace;
+            font-size: 60px;            
+        }
+
+        .linea{
+            height: 3px;
+            background-color: black;
+            margin:20px 0;
+        }
+
+        .abajo{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .celda{
+            text-align: center;
+            border-right: 2px solid black;
+        }
+        .celda:last-child{
+            border-right: none;
+        }
+
+    </style>
 </head>
 <body>
     <div class="contenedor">
         <div class="arriba">
-            <div id="ampm"></div>
-            <div id="reloj">
-                <span id="hora"></span>
-                <span id="puntos"></span>
-                <span id="minutos"></span>
+            <div class="mna" id="ampm">AM</div>
+            <div class="hora-min" id="reloj">
+                <span id="hora">00</span>
+                <span id="puntos">:</span>
+                <span id="minutos">00</span>
             </div>
-            <div id="segundos"></div>
+            <div id="segundos">00</div>
         </div>
 
         <div class="linea"></div>
